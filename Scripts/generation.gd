@@ -23,7 +23,7 @@ func _ready():
 			self.set_cellv(Vector2(x,depth),2)
 
 		for depth in range(y,y+5): #Fill in air gaps with dirt starting from the Y value to 5 blocks down
-			if self.get_cellv(Vector2(x,depth)) == TileMap.INVALID_CELL: #'Air Blocks' are empty cells
+			if self.get_cellv(Vector2(x,depth)) == -1: #'Air Blocks' are empty cells
 				self.set_cellv(Vector2(x,depth),1)
 
 		for depth in range(y,y_depth): #Start from the Y and go down to the Y depth
