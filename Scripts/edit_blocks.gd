@@ -14,6 +14,7 @@ func _physics_process(_delta):
 	raycast_collision_build = raycast_collision_break + collision_normal
 	
 	$CheckEntity.position = tilemap.map_to_world(raycast_collision_build)
+	$BreakAnimator.position = tilemap.map_to_world(raycast_collision_break)
 	
 	var tile = tilemap.get_cellv(raycast_collision_break)
 	var selected_item = $Player/Hotbar.items[$Player/Hotbar.selected_slot]
@@ -25,7 +26,15 @@ func _physics_process(_delta):
 		var hardness = BlockProperties.properties[tile]["hardness"]
 		var current_pos = raycast_collision_break
 		
+		var animator = $BreakAnimator/AnimatedSprite
+
+		animator.speed_scale = 10 / hardness
+		animator.playing = true
+		
 		yield(get_tree().create_timer(hardness), "timeout")
+		
+		animator.playing = false
+		animator.frame = 0
 		
 		if raycast_collision_break == current_pos:
 			give_item(tile)

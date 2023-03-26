@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://TileSets/Tiles.tres" type="TileSet" id=1]
 [ext_resource path="res://Scripts/generation.gd" type="Script" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://Scripts/edit_blocks.gd" type="Script" id=4]
 [ext_resource path="res://Scripts/block_overlay.gd" type="Script" id=5]
 [ext_resource path="res://Graphics/texture_atlas.png" type="Texture" id=6]
+[ext_resource path="res://Graphics/destroy_animation.png" type="Texture" id=7]
+[ext_resource path="res://Scripts/break_animator.gd" type="Script" id=8]
 
 [sub_resource type="TileSet" id=1]
 0/name = "texture_atlas.png 0"
@@ -25,6 +27,58 @@
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 8, 8 )
+
+[sub_resource type="AtlasTexture" id=14]
+atlas = ExtResource( 6 )
+region = Rect2( 112, 112, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 7 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 7 )
+region = Rect2( 16, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 7 )
+region = Rect2( 32, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 7 )
+region = Rect2( 48, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 7 )
+region = Rect2( 64, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 7 )
+region = Rect2( 0, 16, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 7 )
+region = Rect2( 16, 16, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 7 )
+region = Rect2( 32, 16, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 7 )
+region = Rect2( 48, 16, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 7 )
+region = Rect2( 64, 16, 16, 16 )
+
+[sub_resource type="SpriteFrames" id=13]
+animations = [ {
+"frames": [ SubResource( 14 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ) ],
+"loop": true,
+"name": "breaking",
+"speed": 1.0
+} ]
 
 [node name="World" type="Node2D"]
 script = ExtResource( 4 )
@@ -53,7 +107,15 @@ position = Vector2( 8, 8 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CheckEntity/Area2D"]
 shape = SubResource( 2 )
 
-[node name="Node2D" type="Node2D" parent="."]
+[node name="BreakAnimator" type="Node2D" parent="."]
+position = Vector2( -8, -8 )
+script = ExtResource( 8 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="BreakAnimator"]
+position = Vector2( 8, 8 )
+frames = SubResource( 13 )
+animation = "breaking"
+speed_scale = 0.0
 
 [connection signal="body_entered" from="CheckEntity/Area2D" to="." method="_on_CheckEntity_body_entered"]
 [connection signal="body_exited" from="CheckEntity/Area2D" to="." method="_on_CheckEntity_body_exited"]
