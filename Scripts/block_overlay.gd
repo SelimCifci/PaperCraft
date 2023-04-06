@@ -3,4 +3,4 @@ extends TileMap
 func _process(_delta):
 	self.clear()
 	
-	self.set_cellv(get_parent().raycast_collision_break, 0)
+	self.set_cellv(get_parent().raycast_break, 0)

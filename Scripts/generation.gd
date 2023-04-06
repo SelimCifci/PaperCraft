@@ -47,6 +47,8 @@ func generate_tree(x, y):
 		[0, 5, 1]
 	]
 	
+	# ---------------------------------------------------------------------------------
+	
 	for i in prefab:
 		if self.get_cellv(Vector2(i[0] + x, i[1]-5 + y)) != 6 and self.get_cellv(Vector2(i[0] + x, i[1]-5 + y)) != 5 and self.get_cellv(Vector2(prefab[15][0] + x, prefab[15][1]-5 + y)) != TileMap.INVALID_CELL:
 			self.set_cellv(Vector2(i[0] + x, i[1]-5 + y), i[2])
