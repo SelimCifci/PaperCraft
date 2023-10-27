@@ -6,6 +6,8 @@ export var raycast_break = Vector2.ZERO
 
 var entity_in = false
 
+var selected_tile = Vector2(0, 0)
+
 func _physics_process(_delta):
 	var collision_point = $Player/RayCast2D.get_collision_point()
 	var collision_normal = $Player/RayCast2D.get_collision_normal()
@@ -15,6 +17,7 @@ func _physics_process(_delta):
 	var tile = tilemap.get_cellv(raycast_break)
 	var item = $Player/Hotbar.items[$Player/Hotbar.selected_slot]
 	
+	var break_anim = $BreakAnimator/AnimatedSprite
 	# ---------------------------------------------------------------------------------
 	
 	$BreakAnimator.position = tilemap.map_to_world(raycast_break)
@@ -23,10 +26,29 @@ func _physics_process(_delta):
 	if Input.is_action_just_pressed("build") and can_place(raycast_build, item):
 		tilemap.set_cellv(raycast_build, item[0])
 		item[1] -= 1
-	elif Input.is_action_just_pressed("destroy") and tile != 3 and tile != -1:
+	elif Input.is_action_pressed("destroy") and tile != 3 and tile != -1 and break_anim.playing == false:
+		break_anim.playing = true
+		break_anim.frame = 1
+		break_anim.speed_scale = 1/BlockProperties.properties[tile]["hardness"]*10
+		
+		selected_tile = tilemap.map_to_world(raycast_break)
+		
+	if break_anim.frame == 0 and break_anim.playing == true and tilemap.map_to_world(raycast_break) == selected_tile:
 		if BlockProperties.properties[tile]["obtain_hand"] != -1:
 			give_item(BlockProperties.properties[tile]["obtain_hand"])
+			
 		tilemap.set_cellv(raycast_break, -1)
+		
+		break_anim.playing = false
+		break_anim.speed_scale = 0
+	
+	print(tilemap.get_cellv(tilemap.map_to_world(raycast_break)))
+	if tilemap.map_to_world(raycast_break) != selected_tile:
+		break_anim.playing = false
+		break_anim.frame = 0
+		break_anim.speed_scale = 0
+		
+		selected_tile = Vector2(0, 0)
 			
 func can_place(pos, item):
 	var can_place = false
