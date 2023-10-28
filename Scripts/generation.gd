@@ -38,6 +38,9 @@ func _ready():
 		self.set_cellv(Vector2(x,y_depth-1), 3) #Generate bedrock at the bottom
 		self.set_cellv(Vector2(0,1), 3) #Generate bedrock under player
 		
+		self.set_cellv(Vector2(0,0), -1)
+		self.set_cellv(Vector2(0,-1), -1)
+		
 func generate_tree(x, y):
 	var prefab = [
 		[-1, 0, 4], [0, 0, 4], [1, 0, 4],

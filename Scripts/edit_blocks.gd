@@ -51,8 +51,6 @@ func _physics_process(_delta):
 			
 func can_place(pos, item):
 	var can_place = false
-
-	var items = $Player/Hotbar.items
 	
 	# ---------------------------------------------------------------------------------
 

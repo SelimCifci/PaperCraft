@@ -10,4 +10,4 @@ export_presets.cfg
 .mono/
 data_*/
 
-venv/
+Graphics/sync.ffs_db/
