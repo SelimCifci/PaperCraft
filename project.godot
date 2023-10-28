@@ -34,6 +34,7 @@ singletons=[  ]
 
 file=false
 "Use Pixel Snap"=false
+default=false
 
 [gui]
 
@@ -118,4 +119,5 @@ path="res://venv/Lib"
 [rendering]
 
 2d/snapping/use_gpu_pixel_snap=true
+environment/default_clear_color=Color( 0.298039, 0.654902, 0.764706, 1 )
 environment/default_environment="res://default_env.tres"
