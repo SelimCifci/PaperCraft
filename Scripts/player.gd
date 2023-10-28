@@ -27,7 +27,7 @@ func movement(_delta):
 	var is_idling = is_zero_approx(_horizontal_direction)
 	var is_walking = not is_zero_approx(_horizontal_direction)
 	var is_sprinting = is_walking and Input.is_action_pressed("sprint")
-	var is_crouching = Input.is_action_pressed("chrouch") and is_on_floor()
+	var is_crouching = Input.is_action_pressed("crouch") and is_on_floor()
 	
 	# ---------------------------------------------------------------------------------
 		
@@ -66,6 +66,8 @@ func movement(_delta):
 
 	if is_sprinting:
 		_animation_player.play("Run")
+	elif is_crouching:
+		_animation_player.play("Crouch")
 	elif is_walking:
 		_animation_player.play("Walk")
 	elif is_idling:

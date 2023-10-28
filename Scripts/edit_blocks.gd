@@ -41,8 +41,7 @@ func _physics_process(_delta):
 		
 		break_anim.playing = false
 		break_anim.speed_scale = 0
-	
-	print(tilemap.get_cellv(tilemap.map_to_world(raycast_break)))
+
 	if tilemap.map_to_world(raycast_break) != selected_tile:
 		break_anim.playing = false
 		break_anim.frame = 0
