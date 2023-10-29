@@ -121,6 +121,7 @@ speed_scale = 0.0
 
 [node name="Background" type="Sprite" parent="."]
 show_behind_parent = true
+position = Vector2( 8, 0 )
 scale = Vector2( 25, 14 )
 texture = ExtResource( 8 )
 script = ExtResource( 9 )
