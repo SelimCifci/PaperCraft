@@ -15,8 +15,6 @@ var _direction = 0
 onready var _animation_player = $AnimatedPlayer/AnimationPlayer
 
 func _physics_process(delta):
-	print(transform.get_origin())
-	
 	movement(delta)
 		
 func movement(_delta):

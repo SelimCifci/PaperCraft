@@ -119,7 +119,7 @@ frames = SubResource( 13 )
 animation = "breaking"
 speed_scale = 0.0
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="Background" type="Sprite" parent="."]
 show_behind_parent = true
 scale = Vector2( 25, 14 )
 texture = ExtResource( 8 )
