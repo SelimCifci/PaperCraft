@@ -1,0 +1,5 @@
+res://Scenes/Visuals/PlayerSprite.tscn
+res://Scenes/Objects/Player.tscn
+res://Scenes/World.tscn
+res://Scripts/player.gd
+res://Scripts/generation.gd
