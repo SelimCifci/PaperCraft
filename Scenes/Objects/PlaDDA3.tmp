@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://nvg7mfo4u3xm"]
+
+[ext_resource type="PackedScene" uid="uid://d07dogr8cpyir" path="res://Scenes/Visuals/PlayerSprite.tscn" id="1_27slj"]
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_uyjoc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g5nvm"]
+size = Vector2(8, 32)
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_uyjoc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_g5nvm")
+
+[node name="RayCastLeft" type="RayCast2D" parent="CollisionShape2D"]
+position = Vector2(-3, 15)
+target_position = Vector2(0, 2)
+
+[node name="RayCastRight" type="RayCast2D" parent="CollisionShape2D"]
+position = Vector2(3, 15)
+target_position = Vector2(0, 2)
+
+[node name="PlayerSprite" parent="." instance=ExtResource("1_27slj")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(1.2, 1.2)
+limit_smoothed = true
+position_smoothing_enabled = true
+position_smoothing_speed = 15.0

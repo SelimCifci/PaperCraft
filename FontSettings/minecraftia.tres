@@ -1,0 +1,9 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://dlfu3w0o0echa"]
+
+[ext_resource type="FontFile" uid="uid://6vhnmvr2j26n" path="res://Minecraftia-Regular.ttf" id="1_qfmot"]
+
+[resource]
+line_spacing = 0.0
+font = ExtResource("1_qfmot")
+shadow_size = 0
+shadow_offset = Vector2(0.5, 1)

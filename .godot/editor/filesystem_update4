@@ -1,5 +1,11 @@
-res://Scenes/Visuals/PlayerSprite.tscn
-res://Scenes/Objects/Player.tscn
 res://Scenes/World.tscn
-res://Scripts/player.gd
+res://Scenes/Objects/Player.tscn
 res://Scripts/generation.gd
+res://Scenes/Objects/pointer.gd
+res://Scripts/tile_overlay.gd
+res://Scenes/Visuals/Hotbar.tscn
+res://Scripts/hotbar.gd
+res://Scripts/player.gd
+res://Scripts/editor.gd
+res://Scripts/items.gd
+res://FontSettings/minecraftia.tres
