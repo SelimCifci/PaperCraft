@@ -38,5 +38,21 @@ func _ready():
 			if abs(yy) < cave_frequency:
 				set_cell(0, Vector2i(x,i+y))
 		
+		if randi_range(0,10) == 10:
+			generate_structure(Structures.tree,x,y-1)
+		
 		#Generate bedrock
 		set_cell(0, Vector2i(x,height-1), 0, Tiles.coords["bedrock"])
+	
+	#Save player from being stuck in spawn
+	set_cell(0, Vector2i(1,0), 0, Tiles.coords["bedrock"])
+	set_cell(0, Vector2i(1,-1))
+	set_cell(0, Vector2i(1,-2))
+	
+func generate_structure(structure, x, y):
+	for i in structure:
+		if structure != Structures.tree:
+			set_cell(0,Vector2(x,y)+i[0],0,i[1])
+		else:
+			if get_cell_atlas_coords(0,Vector2(x,y)+i[0]) != Tiles.coords["oak_log_leaf"] and get_cell_atlas_coords(0,Vector2(x,y)+i[0]) != Tiles.coords["oak_log"]:
+				set_cell(0,Vector2(x,y)+i[0],0,i[1])

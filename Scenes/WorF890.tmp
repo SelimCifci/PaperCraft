@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://cbpfl3u1sces8"]
+[gd_scene load_steps=23 format=3 uid="uid://cbpfl3u1sces8"]
 
 [ext_resource type="Texture2D" uid="uid://mkfka8goewlm" path="res://Graphics/texture_atlas.png" id="1_r5l00"]
 [ext_resource type="Script" path="res://Scripts/generation.gd" id="2_55rjm"]
@@ -7,31 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://c2osd6xhqkbjm" path="res://Graphics/break_animation.png" id="5_2clhb"]
 [ext_resource type="Texture2D" uid="uid://c7l8jkid8rhuv" path="res://Graphics/overlay.png" id="5_v0isj"]
 [ext_resource type="Script" path="res://Scripts/tile_overlay.gd" id="5_xiyli"]
-[ext_resource type="Texture2D" uid="uid://cbtekxlaeushw" path="res://Graphics/background.png" id="8_gl2bt"]
-[ext_resource type="Script" path="res://Scripts/follow_player.gd" id="9_e1ljo"]
-
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_qyxuc"]
-polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_letoh"]
-polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_frxyh"]
-polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_nkakr"]
-polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_whn85"]
-polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_l7u66"]
-polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1e3nw"]
 texture = ExtResource("1_r5l00")
 0:0/0 = 0
-0:0/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_qyxuc")
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -8, 8, 8, 8, 8, -8)
@@ -39,7 +18,6 @@ texture = ExtResource("1_r5l00")
 0:0/0/custom_data_1 = true
 0:0/0/custom_data_2 = "dirt"
 1:0/0 = 0
-1:0/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_letoh")
 1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 1:0/0/physics_layer_0/angular_velocity = 0.0
 1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -8, 8, 8, 8, 8, -8)
@@ -47,14 +25,12 @@ texture = ExtResource("1_r5l00")
 1:0/0/custom_data_1 = true
 1:0/0/custom_data_2 = "dirt"
 2:0/0 = 0
-2:0/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_frxyh")
 2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 2:0/0/physics_layer_0/angular_velocity = 0.0
 2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -8, 8, 8, 8, 8, -8)
 2:0/0/custom_data_0 = 8.0
 2:0/0/custom_data_2 = "stone"
 3:0/0 = 0
-3:0/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_nkakr")
 3:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 3:0/0/physics_layer_0/angular_velocity = 0.0
 3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -67,7 +43,6 @@ texture = ExtResource("1_r5l00")
 4:0/0/custom_data_0 = 0.5
 4:0/0/custom_data_2 = "leaf"
 5:0/0 = 0
-5:0/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_whn85")
 5:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 5:0/0/physics_layer_0/angular_velocity = 0.0
 5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -75,13 +50,12 @@ texture = ExtResource("1_r5l00")
 5:0/0/custom_data_1 = true
 5:0/0/custom_data_2 = "oak_log"
 6:0/0 = 0
-6:0/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_l7u66")
 6:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 6:0/0/physics_layer_0/angular_velocity = 0.0
 6:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 6:0/0/custom_data_0 = 3.5
 6:0/0/custom_data_1 = true
-6:0/0/custom_data_2 = "oak_log"
+6:0/0/custom_data_2 = "oak_log_leaf"
 7:0/0 = 0
 7:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 7:0/0/physics_layer_0/angular_velocity = 0.0
@@ -99,7 +73,6 @@ texture = ExtResource("1_r5l00")
 3:1/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSet" id="TileSet_lyol3"]
-occlusion_layer_0/light_mask = 1
 physics_layer_0/collision_layer = 1
 custom_data_layer_0/name = "MineTime"
 custom_data_layer_0/type = 3
@@ -239,13 +212,6 @@ position = Vector2(8, 8)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BodyCheck"]
 shape = SubResource("RectangleShape2D_h6402")
-
-[node name="Background" type="Sprite2D" parent="."]
-show_behind_parent = true
-position = Vector2(8.00001, -16)
-scale = Vector2(25, 14.07)
-texture = ExtResource("8_gl2bt")
-script = ExtResource("9_e1ljo")
 
 [connection signal="body_entered" from="BodyCheck" to="Terrain/Editor" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="BodyCheck" to="Terrain/Editor" method="_on_area_2d_body_exited"]

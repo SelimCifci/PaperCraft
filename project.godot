@@ -19,6 +19,7 @@ config/icon="res://Graphics/icon.png"
 
 Tiles="*res://Scripts/tile_coords.gd"
 Items="*res://Scripts/items.gd"
+Structures="*res://Scripts/structures.gd"
 
 [display]
 

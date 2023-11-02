@@ -56,7 +56,8 @@ func show_items():
 			
 func check_items():
 	for i in range(hotbar_slots):
-		if Items.items[i][2] == 0:
+		if Items.items[i][2] <= 0:
+			Items.items[i][2] = 0
 			Items.items[i][0] = -1
 			Items.items[i][1] = -1
 			

@@ -1,11 +1,4 @@
 res://Scenes/World.tscn
-res://Scenes/Objects/Player.tscn
+res://Scripts/structures.gd
 res://Scripts/generation.gd
-res://Scenes/Objects/pointer.gd
-res://Scripts/tile_overlay.gd
-res://Scenes/Visuals/Hotbar.tscn
-res://Scripts/hotbar.gd
-res://Scripts/player.gd
-res://Scripts/editor.gd
-res://Scripts/items.gd
-res://FontSettings/minecraftia.tres
+res://Scripts/follow_player.gd

@@ -18,13 +18,13 @@ func _process(_delta):
 	
 	body_check.transform.origin = tilemap.map_to_local(Vector2(tile_pos)+raycast_normal)
 	
-	if Input.is_action_pressed("mine") and break_anim.frame == 0 and tilemap.get_cell_source_id(0,tile_pos) != -1 and tilemap.get_cell_atlas_coords(0,tile_pos) != Tiles.coords["bedrock"]:
+	if Input.is_action_pressed("mine") and break_anim.frame == 0 and tilemap.get_cell_source_id(0,tile_pos) != -1 and tilemap.get_cell_atlas_coords(0,tile_pos) != Tiles.coords["bedrock"] and raycast.is_colliding():
 		selected_tile = tile_pos
 		
 		break_anim.frame = 1
 		break_anim.speed_scale = 1/tilemap.get_cell_tile_data(0,tile_pos).get_custom_data("MineTime")*10
 	
-	elif Input.is_action_just_pressed("place") and not body_in:
+	elif Input.is_action_just_pressed("place") and not body_in and raycast.is_colliding():
 		var selected_index = get_parent().get_parent().get_node("Player/Hotbar").selected_slot
 		var selected_pos = Vector2i(Items.items[selected_index][0],Items.items[selected_index][1])
 		
@@ -35,29 +35,31 @@ func _process(_delta):
 		break_anim.frame = 0
 		break_anim.speed_scale = 0
 		
-		give_item(tilemap.get_cell_atlas_coords(0, tile_pos))
+		give_item(tile_pos)
 		tilemap.set_cell(0, tile_pos)
 	elif selected_tile != tile_pos:
 		break_anim.frame = 0
 		break_anim.speed_scale = 0
 		
 func give_item(tile_pos):
-	var items = Items.items
-	# ---------------------------------------------------------------------------------
-	for i in range(len(items)):
-		var item_pos = Vector2i(items[i][0], items[i][1])
-		
-		if item_pos == tile_pos and items[i][2] < 64:
-			items[i][2] += 1
-			break
-		elif item_pos == Vector2i(-1,-1):
-			item_pos = tile_pos
-			items[i][2] += 1
-			items[i][0] = tile_pos[0]
-			items[i][1] = tile_pos[1]
-			break
+	if tilemap.get_cell_tile_data(0, tile_pos).get_custom_data("HandObtainable"):
+		var items = Items.items
+		# ---------------------------------------------------------------------------------
+		for i in range(len(items)):
+			var item_pos = Vector2i(items[i][0], items[i][1])
+			tile_pos = Tiles.coords[tilemap.get_cell_tile_data(0, tile_pos).get_custom_data("Obtain")]
 			
-	Items.items = items
+			if item_pos == tile_pos and items[i][2] < 64:
+				items[i][2] += 1
+				break
+			elif item_pos == Vector2i(-1,-1):
+				item_pos = tile_pos
+				items[i][2] += 1
+				items[i][0] = tile_pos[0]
+				items[i][1] = tile_pos[1]
+				break
+				
+		Items.items = items
 
 
 func _on_area_2d_body_entered(body):
