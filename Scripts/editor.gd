@@ -44,16 +44,15 @@ func _process(_delta):
 func give_item(tile_pos):
 	if tilemap.get_cell_tile_data(0, tile_pos).get_custom_data("HandObtainable"):
 		var items = Items.items
+		tile_pos = Tiles.coords[tilemap.get_cell_tile_data(0, tile_pos).get_custom_data("Obtain")]
 		# ---------------------------------------------------------------------------------
 		for i in range(len(items)):
 			var item_pos = Vector2i(items[i][0], items[i][1])
-			tile_pos = Tiles.coords[tilemap.get_cell_tile_data(0, tile_pos).get_custom_data("Obtain")]
 			
 			if item_pos == tile_pos and items[i][2] < 64:
 				items[i][2] += 1
 				break
 			elif item_pos == Vector2i(-1,-1):
-				item_pos = tile_pos
 				items[i][2] += 1
 				items[i][0] = tile_pos[0]
 				items[i][1] = tile_pos[1]

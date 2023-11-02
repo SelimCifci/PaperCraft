@@ -1,4 +1,2 @@
 res://Scenes/World.tscn
-res://Scripts/structures.gd
-res://Scripts/generation.gd
-res://Scripts/follow_player.gd
+res://Scripts/editor.gd

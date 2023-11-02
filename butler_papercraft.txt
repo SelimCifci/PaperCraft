@@ -1,0 +1,2 @@
+butler push C:\Users\Selim\Desktop\Projects\Godot\PaperCraftBuilds\<DATE>\Windows schlimmtim/papercraft:windows
+butler push C:\Users\Selim\Desktop\Projects\Godot\PaperCraftBuilds\<DATE>\Linux schlimmtim/papercraft:linux
