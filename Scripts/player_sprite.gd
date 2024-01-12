@@ -9,6 +9,6 @@ func _process(_delta):
 	
 	#Sprite flipping
 	if get_global_mouse_position().x >= head.global_position.x:
-		transform.x = Vector2(1,0)
+		transform.x = Vector2(0.9,0)
 	elif get_global_mouse_position().x < head.global_position.x:
-		transform.x = Vector2(-1,0)
+		transform.x = Vector2(-0.9,0)

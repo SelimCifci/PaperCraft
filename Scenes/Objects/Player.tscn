@@ -6,36 +6,38 @@
 [ext_resource type="PackedScene" uid="uid://btpg3ea8u6r2a" path="res://Scenes/Visuals/Hotbar.tscn" id="4_3tk55"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g5nvm"]
-size = Vector2(8, 31.9)
+size = Vector2(7.25, 28.75)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_uyjoc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -4.76837e-07)
 shape = SubResource("RectangleShape2D_g5nvm")
 
 [node name="PlayerSprite" parent="." instance=ExtResource("1_27slj")]
+scale = Vector2(0.9, 0.9)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(1.2, 1.2)
+zoom = Vector2(1.3, 1.3)
 limit_smoothed = true
 position_smoothing_speed = 15.0
 
 [node name="RayCastLeft" type="RayCast2D" parent="."]
-position = Vector2(-3, 16)
+position = Vector2(-2.7, 14.4)
 target_position = Vector2(0, 1)
 hit_from_inside = true
 
 [node name="RayCastRight" type="RayCast2D" parent="."]
-position = Vector2(3, 16)
+position = Vector2(2.7, 14.4)
 target_position = Vector2(0, 1)
 hit_from_inside = true
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
-position = Vector2(0, -8)
-target_position = Vector2(70, 0)
+position = Vector2(0, -7.2)
+target_position = Vector2(60, 0)
 script = ExtResource("3_gdmas")
 
 [node name="Hotbar" parent="." instance=ExtResource("4_3tk55")]
-position = Vector2(-102, 78)
-scale = Vector2(1.5, 1.5)
+position = Vector2(-95.25, 75)
+scale = Vector2(1.4, 1.4)

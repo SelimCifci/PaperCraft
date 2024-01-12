@@ -1,2 +1,3 @@
 res://Scenes/World.tscn
-res://Scripts/editor.gd
+res://Scenes/Objects/Player.tscn
+res://Scenes/Visuals/Hotbar.tscn

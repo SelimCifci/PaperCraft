@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://c7l8jkid8rhuv" path="res://Graphics/overlay.png" id="5_v0isj"]
 [ext_resource type="Script" path="res://Scripts/tile_overlay.gd" id="5_xiyli"]
 [ext_resource type="Texture2D" uid="uid://cbtekxlaeushw" path="res://Graphics/background.png" id="8_gl2bt"]
-[ext_resource type="Script" path="res://Scripts/follow_player.gd" id="9_e1ljo"]
+[ext_resource type="Script" path="res://Scripts/background.gd" id="9_xtwht"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_qyxuc"]
 polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -206,24 +206,21 @@ format = 2
 layer_0/name = "Terrain"
 script = ExtResource("2_55rjm")
 smoothness = 2
-width = 500
-height = 150
+width = 1000
+height = 200
 flatness = 40
-cave_frequency = 0.025
 
 [node name="Editor" type="Node" parent="Terrain"]
 script = ExtResource("3_8tnfu")
 
 [node name="Player" parent="." instance=ExtResource("3_ysbs2")]
-position = Vector2(8, -16)
 slide_on_ceiling = false
-speed = 75.0
-crouch_speed = 50.0
-sprint_speed = 125.0
-sprint_jump_speed = 150.0
+speed = 60.0
+crouch_speed = 30.0
+sprint_speed = 90.0
+sprint_jump_speed = 120.0
 
 [node name="TileOverlay" type="Node2D" parent="."]
-position = Vector2(8, 8)
 script = ExtResource("5_xiyli")
 
 [node name="Sprite2D" type="Sprite2D" parent="TileOverlay"]
@@ -242,10 +239,8 @@ shape = SubResource("RectangleShape2D_h6402")
 
 [node name="Background" type="Sprite2D" parent="."]
 show_behind_parent = true
-position = Vector2(8.00001, -16)
-scale = Vector2(25, 14.07)
 texture = ExtResource("8_gl2bt")
-script = ExtResource("9_e1ljo")
+script = ExtResource("9_xtwht")
 
 [connection signal="body_entered" from="BodyCheck" to="Terrain/Editor" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="BodyCheck" to="Terrain/Editor" method="_on_area_2d_body_exited"]
