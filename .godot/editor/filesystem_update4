@@ -1,3 +1,6 @@
 res://Scenes/World.tscn
 res://Scenes/Objects/Player.tscn
 res://Scenes/Visuals/Hotbar.tscn
+res://Scenes/Objects/item.tscn
+res://Scripts/hotbar.gd
+res://Scenes/Objects/Item.tscn

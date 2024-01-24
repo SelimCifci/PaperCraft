@@ -3,6 +3,7 @@
 extends Node
 
 var hotbar_slots = 9
+var item_scene = preload("res://Scenes/Objects/Item.tscn")
 @export var selected_slot = 0
 
 func _ready():
@@ -62,7 +63,17 @@ func check_items():
 			Items.items[i][1] = -1
 			
 func drop():
-	Items.items[selected_slot][2] -= 1
-	if Items.items[selected_slot][2] == 0:
-		Items.items[selected_slot][0] = -1
-		Items.items[selected_slot][1] = -1
+	if Items.items[selected_slot][2] > 0:
+		Items.items[selected_slot][2] -= 1
+		
+		var world = get_parent().get_parent()
+		var item_node = item_scene.instantiate()
+		
+		item_node.get_child(0).play("item_anim")
+		item_node.texture.region_rect = Rect2(16,16)
+		world.add_child(item_node)
+		if Items.items[selected_slot][2] == 0:
+			Items.items[selected_slot][0] = -1
+			Items.items[selected_slot][1] = -1
+		
+	

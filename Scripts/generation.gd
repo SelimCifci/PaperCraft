@@ -32,7 +32,7 @@ func _ready():
 			set_cell(0, Vector2i(x,i), 0, Tiles.coords["stone"])
 		
 		#Generate trees
-		if randi_range(0,10) == 10:
+		if randi_range(0,25) == 25:
 			generate_structure(Structures.tree,x,y-1)
 		
 		#Generate caves

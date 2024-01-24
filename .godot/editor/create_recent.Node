@@ -1,14 +1,14 @@
+AnimationPlayer
+Sprite2D
 Node2D
 CanvasGroup
 CanvasModulate
 DirectionalLight2D
-Sprite2D
 CollisionShape2D
 Area2D
 RayCast2D
 AnimatedSprite2D
 Node
-AnimationPlayer
 Camera2D
 CharacterBody2D
 TileMap

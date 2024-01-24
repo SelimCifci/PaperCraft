@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://d07dogr8cpyir" path="res://Scenes/Visuals/PlayerSprite.tscn" id="1_27slj"]
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_uyjoc"]
-[ext_resource type="Script" path="res://Scenes/Objects/pointer.gd" id="3_gdmas"]
+[ext_resource type="Script" path="res://Scripts/pointer.gd" id="3_gdmas"]
 [ext_resource type="PackedScene" uid="uid://btpg3ea8u6r2a" path="res://Scenes/Visuals/Hotbar.tscn" id="4_3tk55"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g5nvm"]
@@ -34,7 +34,7 @@ target_position = Vector2(0, 1)
 hit_from_inside = true
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
-position = Vector2(0, -7.2)
+position = Vector2(0, -11)
 target_position = Vector2(60, 0)
 script = ExtResource("3_gdmas")
 
